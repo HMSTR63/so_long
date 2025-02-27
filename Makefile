@@ -5,7 +5,8 @@ OBJ_M = $(SRC_M:.c=.o)
 # OBJ_B = $(SRC_B:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address -g
-MLX = -Imlx -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
+MLX_LINUX = -Imlx -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz 
+MLX_MAC =  -Imlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 INCLUDE_M = so_long.h
 
