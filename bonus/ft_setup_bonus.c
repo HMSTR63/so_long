@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setup.c                                         :+:      :+:    :+:   */
+/*   ft_setup_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:33:10 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:10:15 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int ft_init(t_game *game)
 {
@@ -34,7 +34,10 @@ void    ft_clean(t_game *game)
     if (game->mlx)
         free(game->mlx);
     if (game->map)
+    {
+        // ft_free_grid(game->map->grid, game->map->cols);
         free(game->map);
+    }
 }
 static int ft_image(t_game *game)
 {

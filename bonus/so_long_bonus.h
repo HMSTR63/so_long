@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:56:29 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:12:51 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include "../mlx/mlx.h"
+# include <X11/X.h>
 
 # define GRN "\033[0;32m"
 # define RED "\033[0;31m"
@@ -84,6 +85,7 @@ int		ft_strcmp(char *s1, char *s2);
 size_t		ft_strlen(char *s);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_itoa(size_t i);
 
 
 // parsing
@@ -102,6 +104,7 @@ void    ft_clean(t_game *game);
 void	ft_hook(t_game *game);
 int ft_setup_render(t_game *game);
 int ft_moves(t_game *game, int x, int y);
+void ft_animation(t_game *game);
 
 // get_next_line
 char	*ft_strjoin(char *s1, char *s2);

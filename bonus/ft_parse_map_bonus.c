@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_map.c                                     :+:      :+:    :+:   */
+/*   ft_parse_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:17:39 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 16:51:38 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:10:19 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
 static int ft_validate_line(char *line, int rows)
 {
     int i;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_moves.c                                         :+:      :+:    :+:   */
+/*   ft_moves_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:54:09 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:36:44 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:10:23 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 // static void ft_redraw_map(t_game *game)
 // {
 //     // Implement the function to redraw the map or update the display

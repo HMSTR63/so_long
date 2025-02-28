@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hook.c                                          :+:      :+:    :+:   */
+/*   ft_hook_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:55:36 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:44:54 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int ft_key(int code, t_game *game)
 {
@@ -36,6 +36,7 @@ static int ft_key(int code, t_game *game)
 		ft_putstr_fd(PUR "Moves " RES, 1);
 		ft_putnbr_fd(game->moves, 1);
 		ft_putchar_fd('\n', 1);
+		ft_animation(game);
 	}
 	return (0);
 }
@@ -74,6 +75,7 @@ int ft_setup_render(t_game *game)
 		y++;
 	}
 	mlx_put_image_to_window(game->mlx, game->window, game->image.player, game->player_y * SIZE, game->player_x * SIZE);
+
 	return (0);
 }
 

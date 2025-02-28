@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_valid_map.c                                     :+:      :+:    :+:   */
+/*   ft_valid_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:18:43 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:30:41 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:10:10 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void ft_fill(char **grid, int x, int y, t_game *game)
 {
