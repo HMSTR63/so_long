@@ -19,7 +19,7 @@ stock : $(OBJ_M)
 	mv mandatory/*.o objects
 
 $(NAME_M): $(OBJ_M)
-	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $(NAME_M)
+	$(CC) $(CFLAGS) $(OBJ_M) $(MLX_MAC) -o $(NAME_M)
 
 %.o: %.c $(INCLUDE_M)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -31,7 +31,7 @@ stock_b : $(OBJ_B)
 	mv bonus/*.o objects_b
 
 $(NAME_B): $(OBJ_B)
-	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $(NAME_B)
+	$(CC) $(CFLAGS) $(OBJ_B) $(MLX_MAC) -o $(NAME_B)
 
 %_bonus.o: %_bonus.c $(INCLUDE_B)
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:33:10 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/01 01:16:38 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static int ft_image(t_game *game)
 
     width = SIZE;
     height = SIZE;
+    // if (SIZE != 64)
+    //     return (0);
     game->image.player = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_p.xpm", &width, &height);
     game->image.wall = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_w.xpm", &width, &height);
     game->image.exit = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_e.xpm", &width, &height);

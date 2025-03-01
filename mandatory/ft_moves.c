@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:54:09 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 17:36:44 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/01 01:55:26 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ int ft_moves(t_game *game, int x, int y)
         ft_collect(game, move_x, move_y);
     else if (ft_win(game, move_x, move_y) == 1)
         exit(0);
-    game->map->grid[game->player_x][game->player_y] = '0';
+    // game->map->grid[game->player_x][game->player_y] = '0';
     game->player_x = move_x;
     game->player_y = move_y;
-    game->map->grid[game->player_x][game->player_y] = 'P';
+    // game->map->grid[game->player_x][game->player_y] = 'P';
     // ft_redraw_map(game);
     return (1);
 }

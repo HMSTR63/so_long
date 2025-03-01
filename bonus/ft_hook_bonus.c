@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:44:54 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/01 00:19:43 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ static int ft_key(int code, t_game *game)
 	if (move)
 	{
 		game->moves++;
-		ft_putstr_fd(PUR "Moves " RES, 1);
-		ft_putnbr_fd(game->moves, 1);
-		ft_putchar_fd('\n', 1);
-		ft_animation(game);
 	}
 	return (0);
 }
@@ -75,6 +71,7 @@ int ft_setup_render(t_game *game)
 		y++;
 	}
 	mlx_put_image_to_window(game->mlx, game->window, game->image.player, game->player_y * SIZE, game->player_x * SIZE);
+	ft_animation(game);
 
 	return (0);
 }
