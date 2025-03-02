@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:17:39 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 16:51:38 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:47:21 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ static int ft_fill_map(t_game *game, char *file)
     fd = open(file, O_RDONLY);
     if (fd < 0)
     {
-        free(game->map->grid);
+        ft_free_grid(game->map->grid, game->map->cols);
         return (-1);
     }
     if (!ft_filling(fd, game))
     {
-        free(game->map->grid);
+        ft_free_grid(game->map->grid, game->map->cols);
         close(fd);
         return (0);
     }
@@ -80,18 +80,17 @@ int ft_parse_map(t_game *game, char *file)
         return (0);
     if (!ft_get_dimensions(game, file) || game->map->cols > 32 || game->map->rows > 60)
     {
-        free(game->map);
+        ft_clean(game);
         return (0);
     }
     if (!ft_fill_map(game, file))
     {
-        free(game->map);
+        ft_clean(game);
         return (0);
     }
     if (!ft_valid_wall(game) || !ft_valid_chars(game) || !ft_valid_map(game))
     {
-        ft_free_grid(game->map->grid, game->map->cols);
-        free(game->map);
+        ft_clean(game);
         return (0);
     }
     return (1);

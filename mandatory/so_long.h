@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 18:21:54 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:47:04 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	ft_putnbr_fd(int n, int fd);
 // parsing
 int		ft_check_extension(char *file);
 int		ft_parse_map(t_game *game, char *file);
-void    ft_free_grid(char **grid, int rows);
+void    ft_free_grid(char **grid, int cols);
 int     ft_filling(int fd, t_game *game);
 int     ft_valid_wall(t_game *game);
 int     ft_valid_chars(t_game *game);

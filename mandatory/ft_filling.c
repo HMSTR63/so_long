@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:03:50 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/26 14:04:29 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:39:30 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ static int ft_alloc_grid(t_game *game, char *line, int i)
     return (1);
 }
 
-void ft_free_grid(char **grid, int rows)
+void ft_free_grid(char **grid, int cols)
 {
     int i;
 
     if (!grid)
         return ;
     i = 0;
-    while (i < rows)
+    while (i < cols)
     {
-        if (grid[i])
-            free(grid[i]);
+        free(grid[i]);
         i++;
     }
     free(grid);

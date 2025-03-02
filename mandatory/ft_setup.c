@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 01:16:38 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:48:31 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int ft_init(t_game *game)
     game->window = mlx_new_window(game->mlx, game->map->rows * SIZE, game->map->cols * SIZE, "so_long");
     if (!game->window)
     {
-        free(game->mlx);
+        ft_clean(game);
         return (0);
     }
     game->moves = 0;
@@ -29,12 +29,23 @@ static int ft_init(t_game *game)
 }
 void    ft_clean(t_game *game)
 {
-    if (game->mlx && game->window)
-        mlx_destroy_window(game->mlx, game->window);
-    if (game->mlx)
-        free(game->mlx);
     if (game->map)
+    {
+        if (game->map->grid)
+            ft_free_grid(game->map->grid, game->map->cols);
         free(game->map);
+        game->map = NULL;
+    }
+    if (game->mlx && game->window)
+    {
+        mlx_destroy_window(game->mlx, game->window);
+        game->window = NULL;
+    }
+    if (game->mlx)
+    {
+        free(game->mlx);
+        game->mlx = NULL;
+    }
 }
 static int ft_image(t_game *game)
 {
