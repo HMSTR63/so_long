@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 00:19:43 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 03:32:54 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,21 @@ static void ft_rendring(t_game *game, char c, int x, int y)
 {
 	int	win_x;
 	int win_y;
-
+	
 	win_x = x * SIZE;
 	win_y = y * SIZE;
+	if (c == '0')
+		mlx_put_image_to_window(game->mlx, game->window, game->image.floor, win_x, win_y);
+	if (c == 'P')
+		mlx_put_image_to_window(game->mlx, game->window, game->image.player, game->player_y * SIZE, game->player_x * SIZE);
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx, game->window, game->image.wall, win_x, win_y);
-	else if (c == 'C')
+	if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->window, game->image.collectible, win_x, win_y);
-	else if (c == 'E')
-		mlx_put_image_to_window(game->mlx, game->window, game->image.exit, win_x, win_y);
-	else 
-		mlx_put_image_to_window(game->mlx, game->window, game->image.floor, win_x, win_y);
+	if (c == 'E' && game->collectibles != game->collectibles_count)
+		mlx_put_image_to_window(game->mlx, game->window, game->image.exit_close, win_x, win_y);
+	if (c == 'E' && game->collectibles == game->collectibles_count)
+		mlx_put_image_to_window(game->mlx, game->window, game->image.exit_open, win_x, win_y);
 }
 
 int ft_setup_render(t_game *game)
@@ -70,9 +74,7 @@ int ft_setup_render(t_game *game)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(game->mlx, game->window, game->image.player, game->player_y * SIZE, game->player_x * SIZE);
 	ft_animation(game);
-
 	return (0);
 }
 

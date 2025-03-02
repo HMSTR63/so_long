@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 16:19:53 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/01 23:11:21 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <limits.h>
-# include <mlx.h>
+# include "../mlx/mlx.h"
+# include <X11/X.h>
 
 # define GRN "\033[0;32m"
 # define RED "\033[0;31m"
@@ -31,21 +32,33 @@
 
 # define SIZE 32
 
-# define ESC 53
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define UP 126
-# define LEFT 123
-# define DOWN 125
-# define RIGHT 124
+// LINUX
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define LEFT 65361
+# define DOWN 65364
+# define RIGHT 65363
+// MAC
+// # define ESC 53
+// # define W 13
+// # define A 0
+// # define S 1
+// # define D 2
+// # define UP 126
+// # define LEFT 123
+// # define DOWN 125
+// # define RIGHT 124
 // image
 typedef struct s_image
 {
     void    *wall;
     void    *player;
-    void    *exit;
+    void    *exit_open;
+    void    *exit_close;
     void    *collectible;
     void    *floor;
 }	t_image;
