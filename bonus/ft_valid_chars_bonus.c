@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:01:35 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:10:13 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:45:30 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static int ft_chars(char c, t_game *game, int x, int y)
         game->exit++;
     else if (c == 'C')
         game->collectibles_count++;
+    else if (c == 'N')
+        game->enemy_count++;
     else if (c != '1' && c != '0')
         return (0);
     return (1);
@@ -40,6 +42,7 @@ int ft_valid_chars(t_game *game)
     game->player = 0;
     game->exit = 0;
     game->collectibles_count = 0;
+    game->enemy_count = 0;
     while (x < game->map->cols)
     {
         y = 0;
@@ -51,5 +54,5 @@ int ft_valid_chars(t_game *game)
         }
         x++;
     }
-    return (game->player == 1 && game->exit == 1 && game->collectibles_count > 0);
+    return (game->player == 1 && game->exit == 1 && game->collectibles_count >= 1 && game->enemy_count >= 1);
 }

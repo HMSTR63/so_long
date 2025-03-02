@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:54:09 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:10:23 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:18:38 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ static void ft_won()
     ft_putstr_fd(GRN "  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║   ██║██║╚██╗██║╚═╝\n", 1);
     ft_putstr_fd(GRN "   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║ ╚████║██╗\n" , 1);
     ft_putstr_fd(GRN "   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝\n" RES, 1);
+}
+static void ft_lost()
+{
+    ft_putstr_fd(RED "██╗    ██╗ █████╗ ███████╗████████╗███████╗██████╗ \n", 1);
+    ft_putstr_fd(RED "██║    ██║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗\n", 1);
+    ft_putstr_fd(RED "██║ █╗ ██║███████║███████╗   ██║   █████╗  ██║  ██║\n", 1);
+    ft_putstr_fd(RED "██║███╗██║██╔══██║╚════██║   ██║   ██╔══╝  ██║  ██║\n", 1);
+    ft_putstr_fd(RED "╚███╔███╔╝██║  ██║███████║   ██║   ███████╗██████╔╝\n" , 1);
+    ft_putstr_fd(RED " ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═════╝ \n" RES, 1);
 }
 static int ft_valid_pos(t_game *game, int x, int y)
 {
@@ -76,6 +85,11 @@ int ft_moves(t_game *game, int x, int y)
         ft_collect(game, move_x, move_y);
     else if (ft_win(game, move_x, move_y) == 1)
         exit(0);
+    else if (game->map->grid[move_x][move_y] == 'N')
+    {
+        ft_lost();
+        exit(0);       
+    }
     game->map->grid[game->player_x][game->player_y] = '0';
     game->player_x = move_x;
     game->player_y = move_y;

@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 23:22:04 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:27:06 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ static int ft_image(t_game *game)
     game->image.exit_open = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_e_open.xpm", &width, &height);
     game->image.collectible = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_c.xpm", &width, &height);
     game->image.floor = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_f.xpm", &width, &height);
-    if (!game->image.player || !game->image.wall || !game->image.exit_close || !game->image.exit_open || !game->image.collectible || !game->image.floor)
+    game->image.enemy = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_n.xpm", &width, &height);
+    if (!game->image.player || !game->image.wall || !game->image.exit_close || !game->image.exit_open || !game->image.collectible || !game->image.floor || !game->image.enemy)
         return (0);
     return (1);
 }

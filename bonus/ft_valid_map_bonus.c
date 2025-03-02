@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:18:43 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:10:10 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:46:30 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void ft_fill(char **grid, int x, int y, t_game *game)
         return ;
     if (grid[x][y] == 'E')
         game->won = 1;
-    if (grid[x][y] == '1' || grid[x][y] == 'X' || grid[x][y] == 'E')
+    if (grid[x][y] == '1' || grid[x][y] == 'X' || grid[x][y] == 'E' || grid[x][y] == 'N')
         return ;
     if (grid[x][y] == 'C')
         game->collectibles++;

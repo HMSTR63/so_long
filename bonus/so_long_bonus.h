@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/01 23:11:21 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:29:33 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_image
     void    *exit_close;
     void    *collectible;
     void    *floor;
+    void    *enemy;
 }	t_image;
 // map
 typedef struct s_map
@@ -83,6 +84,7 @@ typedef struct s_game
     int     prev_player_x;
     int		collectibles;
     int		collectibles_count;
+    int     enemy_count;
     int     player;
     int		exit;
     int		moves;

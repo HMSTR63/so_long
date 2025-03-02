@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 03:32:54 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:22:04 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ static int ft_key(int code, t_game *game)
 	if (move)
 	{
 		game->moves++;
+		ft_putstr_fd(PUR "Moves " RES, 1);
+		ft_putnbr_fd(game->moves, 1);
+		ft_putchar_fd('\n', 1);
 	}
 	return (0);
 }
@@ -52,6 +55,8 @@ static void ft_rendring(t_game *game, char c, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->window, game->image.wall, win_x, win_y);
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->window, game->image.collectible, win_x, win_y);
+	if (c == 'N')
+		mlx_put_image_to_window(game->mlx, game->window, game->image.enemy, win_x, win_y);
 	if (c == 'E' && game->collectibles != game->collectibles_count)
 		mlx_put_image_to_window(game->mlx, game->window, game->image.exit_close, win_x, win_y);
 	if (c == 'E' && game->collectibles == game->collectibles_count)
