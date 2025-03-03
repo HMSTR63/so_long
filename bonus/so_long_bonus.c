@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:03:16 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:09:40 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:45:20 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int main(int c, char **v)
         exit(1);
     ft_hook(&game);
     mlx_loop(game.mlx);
+    ft_clean(&game);
     return (0);
 }

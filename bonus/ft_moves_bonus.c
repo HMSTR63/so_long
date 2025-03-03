@@ -6,25 +6,11 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:54:09 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 15:18:38 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 03:07:26 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-// static void ft_redraw_map(t_game *game)
-// {
-//     // Implement the function to redraw the map or update the display
-//     // This function should ensure the map is displayed correctly after the player moves
-//     for (int i = 0; i < game->map->cols; i++)
-//     {
-//         for (int j = 0; j < game->map->rows; j++)
-//         {
-//             // Print or update the display with the current state of the map
-//             printf("%c ", game->map->grid[i][j]);
-//         }
-//         printf("\n");
-//     }
-// }
 
 static void ft_won()
 {
@@ -94,6 +80,5 @@ int ft_moves(t_game *game, int x, int y)
     game->player_x = move_x;
     game->player_y = move_y;
     game->map->grid[game->player_x][game->player_y] = 'P';
-    // ft_redraw_map(game);
     return (1);
 }

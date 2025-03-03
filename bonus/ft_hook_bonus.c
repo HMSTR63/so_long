@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 15:22:04 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:25:57 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,7 @@ static int ft_key(int code, t_game *game)
 	else if (code == D || code == RIGHT)
 		move = ft_moves(game, 0, 1);
 	if (move)
-	{
 		game->moves++;
-		ft_putstr_fd(PUR "Moves " RES, 1);
-		ft_putnbr_fd(game->moves, 1);
-		ft_putchar_fd('\n', 1);
-	}
 	return (0);
 }
 

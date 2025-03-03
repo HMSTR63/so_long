@@ -5,33 +5,24 @@ SRC_B = bonus/ft_animation_bonus.c bonus/ft_check_extension_bonus.c bonus/ft_fil
 OBJ_M = $(SRC_M:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address -g
-MLX_LINUX = -Imlx -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz 
-MLX_MAC =  -Imlx -lmlx -framework OpenGL -framework AppKit
-RM = rm -rf
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address -g
+MLX =  -Imlx -lmlx -framework OpenGL -framework AppKit
+RM = rm -f
 INCLUDE_M = so_long.h
 INCLUDE_B = so_long_bonus.h
 
-all: $(NAME_M) stock
-
-stock : $(OBJ_M)
-	mkdir objects
-	mv mandatory/*.o objects
+all: $(NAME_M)
 
 $(NAME_M): $(OBJ_M)
-	$(CC) $(CFLAGS) $(OBJ_M) $(MLX_LINUX) -o $(NAME_M)
+	$(CC) $(CFLAGS) $(OBJ_M) $(MLX) -o $(NAME_M)
 
 %.o: %.c $(INCLUDE_M)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(NAME_B) stock_b
-
-stock_b : $(OBJ_B)
-	mkdir objects_b
-	mv bonus/*.o objects_b
+bonus: $(NAME_B)
 
 $(NAME_B): $(OBJ_B)
-	$(CC) $(CFLAGS) $(OBJ_B) $(MLX_LINUX) -o $(NAME_B)
+	$(CC) $(CFLAGS) $(OBJ_B) $(MLX) -o $(NAME_B)
 
 %_bonus.o: %_bonus.c $(INCLUDE_B)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -40,7 +31,7 @@ clean:
 	$(RM) $(OBJ_M) $(OBJ_B)
 
 fclean: clean
-	$(RM) $(NAME_M) $(NAME_B) objects objects_b
+	$(RM) $(NAME_M) $(NAME_B)
 
 re: fclean all
 

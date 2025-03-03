@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:56:25 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 15:58:16 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:18:08 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int ft_coin(t_game *game)
     height = SIZE;
     
     frames++;
-    if (frames < 100)
+    if (frames < 12)
         return (0);
     frames = 0;
     if(c_count >= 3)
@@ -48,7 +48,7 @@ static int ft_idel(t_game *game)
     height = SIZE;
     
     frames++;
-    if (frames < 100)
+    if (frames < 12)
         return (0);
     frames = 0;
     if(p_count >= 6)
@@ -81,7 +81,7 @@ static int ft_enemy(t_game *game)
     height = SIZE;
     
     frames++;
-    if (frames < 100)
+    if (frames < 12)
         return (0);
     frames = 0;
     if(n_count >= 3)

@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:03:50 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 23:39:49 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:41:49 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void ft_free_grid(char **grid, int cols)
     i = 0;
     while (i < cols)
     {
-        free(grid[i]);
+        if (grid[i])
+            free(grid[i]);
         i++;
     }
     free(grid);

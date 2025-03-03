@@ -6,11 +6,25 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 23:44:21 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 01:28:32 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void ft_free_image(t_game *game)
+{
+    if (game->image.player)
+        mlx_destroy_image(game->mlx, game->image.player);
+    if (game->image.wall)
+        mlx_destroy_image(game->mlx, game->image.wall);
+    if (game->image.exit)
+        mlx_destroy_image(game->mlx, game->image.exit);
+    if (game->image.collectible)
+        mlx_destroy_image(game->mlx, game->image.collectible);
+    if (game->image.floor)
+        mlx_destroy_image(game->mlx, game->image.floor);
+}
 
 static int ft_init(t_game *game)
 {
@@ -20,7 +34,7 @@ static int ft_init(t_game *game)
     game->window = mlx_new_window(game->mlx, game->map->rows * SIZE, game->map->cols * SIZE, "so_long");
     if (!game->window)
     {
-		ft_clean(game);
+        free(game->mlx);
         return (0);
     }
     game->moves = 0;
@@ -29,23 +43,14 @@ static int ft_init(t_game *game)
 }
 void    ft_clean(t_game *game)
 {
-    if (game->map)
-    {
-        if (game->map->grid)
-            ft_free_grid(game->map->grid, game->map->cols);
-        free(game->map);
-        game->map = NULL;
-    }
     if (game->mlx && game->window)
-    {
         mlx_destroy_window(game->mlx, game->window);
-        game->window = NULL;
-    }
     if (game->mlx)
-    {
         free(game->mlx);
-        game->mlx = NULL;
-    }
+    if (game->map)
+        free(game->map);
+    if (game->map->grid)
+        ft_free_grid(game->map->grid, game->map->cols);
 }
 static int ft_image(t_game *game)
 {
@@ -54,15 +59,18 @@ static int ft_image(t_game *game)
 
     width = SIZE;
     height = SIZE;
-    // if (SIZE != 64)
-    //     return (0);
+    if (SIZE != 32)
+        return (0);
     game->image.player = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_p.xpm", &width, &height);
     game->image.wall = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_w.xpm", &width, &height);
     game->image.exit = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_e.xpm", &width, &height);
     game->image.collectible = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_c.xpm", &width, &height);
     game->image.floor = mlx_xpm_file_to_image(game->mlx, "mandatory/../images/so_long_f.xpm", &width, &height);
     if (!game->image.player || !game->image.wall || !game->image.exit || !game->image.collectible || !game->image.floor)
+    {
+        ft_free_image(game);  
         return (0);
+    }
     return (1);
 }
 

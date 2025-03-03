@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:17:39 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/02 23:46:32 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 01:05:27 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,11 @@ static int ft_fill_map(t_game *game, char *file)
     fd = open(file, O_RDONLY);
     if (fd < 0)
     {
-		ft_free_grid(game->map->grid, game->map->cols);
+        free(game->map->grid);
         return (-1);
     }
     if (!ft_filling(fd, game))
     {
-		ft_free_grid(game->map->grid, game->map->cols);
         close(fd);
         return (0);
     }
@@ -78,20 +77,20 @@ int ft_parse_map(t_game *game, char *file)
     game->map = malloc(sizeof(t_map));
     if (!game->map)
         return (0);
-    if (!ft_get_dimensions(game, file) || game->map->cols > 32 || game->map->rows > 60)
+    if (!ft_get_dimensions(game, file) || game->map->cols > 37 || game->map->rows > 76)
     {
-		ft_clean(game);
+        free(game->map);
         return (0);
     }
     if (!ft_fill_map(game, file))
     {
-		ft_clean(game);
+        free(game->map);
         return (0);
     }
     if (!ft_valid_wall(game) || !ft_valid_chars(game) || !ft_valid_map(game))
     {
         ft_free_grid(game->map->grid, game->map->cols);
-		ft_clean(game);
+        free(game->map);
         return (0);
     }
     return (1);
