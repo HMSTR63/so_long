@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:59:37 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:09:37 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:51:04 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
@@ -49,4 +50,22 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nb / 10, fd);
 	res = nb % 10 + '0';
 	write(fd, &res, 1);
+}
+
+void	ft_clean(t_game *game)
+{
+	if (game->mlx && game->window)
+		mlx_destroy_window(game->mlx, game->window);
+	if (game->mlx)
+		free(game->mlx);
+	if (game->map)
+		free(game->map);
+	if (game->map->grid)
+		ft_free_grid(game->map->grid, game->map->cols);
+}
+
+int	ft_close(t_game *game)
+{
+	ft_clean(game);
+	exit(0);
 }

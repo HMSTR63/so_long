@@ -6,13 +6,13 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:08:52 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/28 18:09:29 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/04 04:11:18 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -26,12 +26,12 @@ int		ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-size_t		ft_strlen(char *s)
+size_t	ft_strlen(char *s)
 {
-	if (!s)
-		return (0);
 	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

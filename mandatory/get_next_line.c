@@ -6,11 +6,23 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:18:45 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/26 15:12:44 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 04:28:52 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+size_t	ft_strlen(char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 static char	*read_from_fd(int fd, char *buffer)
 {

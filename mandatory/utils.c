@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:08:52 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/27 17:15:06 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 04:29:07 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -45,18 +45,6 @@ int		ft_strcmp(char *s1, char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
-}
-
-size_t		ft_strlen(char *s)
-{
-	if (!s)
-		return (0);
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
@@ -77,6 +65,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	}
 	return (srcl);
 }
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;

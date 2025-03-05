@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:19:11 by sojammal          #+#    #+#             */
-/*   Updated: 2025/02/26 15:11:44 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/03 04:25:42 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	len_at_newline(char *line, int i)
 
 char	*ft_strdup(char *s1)
 {
-	char	*dst;
+	char			*dst;
 	unsigned int	i;
 
 	if (!s1)
@@ -30,7 +30,7 @@ char	*ft_strdup(char *s1)
 	if (!dst)
 		return (NULL);
 	i = 0;
- 	while (s1[i])
+	while (s1[i])
 	{
 		dst[i] = s1[i];
 		i++;
