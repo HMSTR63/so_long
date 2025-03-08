@@ -6,21 +6,14 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:03:16 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/05 15:19:05 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:04:09 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// void f()
-// {
-// 	// system("leaks so_long");
-// 	system("lsof -c so_long");
-// }
-
 int	main(int c, char **v)
 {
-	// atexit(f);
 	t_game	game;
 
 	if (c != 2)

@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:59:37 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/04 17:51:04 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/06 23:26:34 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	ft_clean(t_game *game)
 {
 	if (game->mlx && game->window)
 		mlx_destroy_window(game->mlx, game->window);
-	if (game->mlx)
+	ft_free_image(game);
+	if (!game->mlx)
 		free(game->mlx);
 	if (game->map)
 		free(game->map);

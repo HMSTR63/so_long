@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/05 17:04:02 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:05:07 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../mlx/mlx.h"
-# include <X11/X.h>
+# include <mlx.h>
 
 # define GRN "\033[0;32m"
 # define RED "\033[0;31m"
@@ -32,15 +31,15 @@
 #  define SIZE 32
 # endif
 
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define UP 65362
-# define LEFT 65361
-# define DOWN 65364
-# define RIGHT 65363
+# define ESC 53
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define UP 126
+# define LEFT 123
+# define DOWN 125
+# define RIGHT 124
 
 typedef struct s_anim
 {
@@ -50,6 +49,12 @@ typedef struct s_anim
 	void	*p4;
 	void	*p5;
 	void	*p6;
+	void	*c1;
+	void	*c2;
+	void	*c3;
+	void	*n1;
+	void	*n2;
+	void	*n3;
 }	t_anim;
 
 typedef struct s_image
@@ -79,8 +84,6 @@ typedef struct s_game
 	void	*window;
 	int		player_x;
 	int		player_y;
-	int		prev_player_y;
-	int		prev_player_x;
 	int		collectibles;
 	int		collectibles_count;
 	int		enemy_count;
@@ -114,11 +117,22 @@ int		ft_setup_render(t_game *game);
 int		ft_moves(t_game *game, int x, int y);
 void	ft_animation(t_game *game);
 int		ft_close(t_game *game);
+void	ft_free_image(t_game *game);
+void	ft_free_anim(t_game *game);
+void	ft_img(char *path, void **s, t_game *game);
+void	ft_idel_animation(int count, t_game *game);
+void	ft_enemy_animation(int count, t_game *game);
+void	ft_coin_animation(int count, t_game *game);
+int		ft_get_player(t_game *game);
+int		ft_get_coin(t_game *game);
+int		ft_get_enemy(t_game *game);
+void	ft_lost(void);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strchr(char *s, int c);
 int		len_at_newline(char *line, int i);
+void	ft_rendring(t_game *game, char c, int x, int y);
 
 #endif

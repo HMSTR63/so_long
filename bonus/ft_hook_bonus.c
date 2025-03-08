@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:04:51 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/04 16:59:10 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/06 23:13:14 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_key(int code, t_game *game)
 	return (0);
 }
 
-static void	ft_rendring(t_game *game, char c, int x, int y)
+void	ft_rendring(t_game *game, char c, int x, int y)
 {
 	if (c == '0')
 		mlx_put_image_to_window(game->mlx, game->window,

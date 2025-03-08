@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:54:17 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/05 17:03:39 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/07 02:05:14 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../mlx/mlx.h"
-# include <X11/X.h>
+# include <mlx.h>
 
 # define GRN "\033[0;32m"
 # define RED "\033[0;31m"
@@ -32,15 +31,15 @@
 #  define SIZE 32
 # endif
 
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define UP 65362
-# define LEFT 65361
-# define DOWN 65364
-# define RIGHT 65363
+# define ESC 53
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define UP 126
+# define LEFT 123
+# define DOWN 125
+# define RIGHT 124
 
 typedef struct s_image
 {
@@ -97,6 +96,7 @@ void	ft_clean(t_game *game);
 void	ft_hook(t_game *game);
 int		ft_setup_render(t_game *game);
 int		ft_moves(t_game *game, int x, int y);
+void	ft_init_values(t_game *game);
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);

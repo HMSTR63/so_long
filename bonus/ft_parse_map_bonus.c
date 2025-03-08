@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:17:39 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/04 03:54:54 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:48:38 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ static int	ft_get_dimensions(t_game *game, char *file)
 	game->map->cols = 0;
 	line = get_next_line(fd);
 	if (line == NULL)
-		return (0);
+		return (close(fd), 0);
 	game->map->rows = ft_strlen(line) - 1;
 	while (line)
 	{
 		if (!ft_validate_line(line, game->map->rows))
 		{
-			free(line);
-			close(fd);
+			(get_next_line(-100), free(line), close(fd));
 			return (0);
 		}
 		game->map->cols++;

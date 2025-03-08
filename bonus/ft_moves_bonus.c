@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:54:09 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/04 16:42:24 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:11:42 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_won(void)
 	ft_putstr_fd(GRN "  ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝\n" RES, 1);
 }
 
-static void	ft_lost(void)
+void	ft_lost(void)
 {
 	ft_putstr_fd(RED "██╗    ██╗ █████╗ ███████╗████████", 1);
 	ft_putstr_fd(RED "╗███████╗██████╗ \n", 1);

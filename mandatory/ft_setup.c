@@ -6,7 +6,7 @@
 /*   By: sojammal <sojammal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:18 by sojammal          #+#    #+#             */
-/*   Updated: 2025/03/05 15:21:18 by sojammal         ###   ########.fr       */
+/*   Updated: 2025/03/06 23:26:08 by sojammal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void	ft_clean(t_game *game)
 	if (game->mlx && game->window)
 		mlx_destroy_window(game->mlx, game->window);
 	ft_free_image(game);
-	mlx_destroy_display(game->mlx);
-	if (game->mlx)
+	if (!game->mlx)
 		free(game->mlx);
 	if (game->map)
 		free(game->map);
@@ -67,15 +66,15 @@ static int	ft_image(t_game *game)
 	if (SIZE != 32)
 		return (0);
 	game->image.player = mlx_xpm_file_to_image(game->mlx,
-			"mandatory/../images/so_long_p.xpm", &width, &height);
+			"mandatory/../textures/so_long_p.xpm", &width, &height);
 	game->image.wall = mlx_xpm_file_to_image(game->mlx,
-			"mandatory/../images/so_long_w.xpm", &width, &height);
+			"mandatory/../textures/so_long_w.xpm", &width, &height);
 	game->image.exit = mlx_xpm_file_to_image(game->mlx,
-			"mandatory/../images/so_long_e.xpm", &width, &height);
+			"mandatory/../textures/so_long_e.xpm", &width, &height);
 	game->image.collectible = mlx_xpm_file_to_image(game->mlx,
-			"mandatory/../images/so_long_c.xpm", &width, &height);
+			"mandatory/../textures/so_long_c.xpm", &width, &height);
 	game->image.floor = mlx_xpm_file_to_image(game->mlx,
-			"mandatory/../images/so_long_f.xpm", &width, &height);
+			"mandatory/../textures/so_long_f.xpm", &width, &height);
 	if (!game->image.player || !game->image.wall || !game->image.exit
 		|| !game->image.collectible || !game->image.floor)
 	{
